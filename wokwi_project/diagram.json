@@ -1,0 +1,207 @@
+{
+  "version": 1,
+  "author": "SWAPD453 Student",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-v1",
+      "id": "esp32",
+      "top": -79.52,
+      "left": 158.4,
+      "attrs": {
+        "flashSize": "4"
+      }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot1",
+      "attrs": {
+        "value": "50"
+      },
+      "top": 100,
+      "left": 50,
+      "rotate": 90
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb1",
+      "attrs": {
+        "common": "cathode"
+      },
+      "top": 100,
+      "left": 300,
+      "rotate": 0
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "attrs": {
+        "value": "220"
+      },
+      "top": 130,
+      "left": 330,
+      "rotate": 90
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "attrs": {
+        "value": "220"
+      },
+      "top": 130,
+      "left": 360,
+      "rotate": 90
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "attrs": {
+        "value": "220"
+      },
+      "top": 130,
+      "left": 390,
+      "rotate": 90
+    },
+    {
+      "type": "wokwi-ssd1306",
+      "id": "oled1",
+      "attrs": {
+        "address": "0x3C"
+      },
+      "top": 0,
+      "left": 400,
+      "rotate": 0
+    }
+  ],
+  "connections": [
+    [
+      "esp32:TX0",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp32:RX0",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "pot1:SIG",
+      "esp32:GPIO34",
+      "red",
+      [
+        "v-0.4",
+        "h-20"
+      ]
+    ],
+    [
+      "pot1:VCC",
+      "esp32:3V3",
+      "red",
+      [
+        "v-0.6",
+        "h-100"
+      ]
+    ],
+    [
+      "pot1:GND",
+      "esp32:GND",
+      "black",
+      [
+        "v0.6",
+        "h-100"
+      ]
+    ],
+    [
+      "rgb1:R",
+      "r1:1",
+      "red",
+      []
+    ],
+    [
+      "rgb1:G",
+      "r2:1",
+      "green",
+      []
+    ],
+    [
+      "rgb1:B",
+      "r3:1",
+      "blue",
+      []
+    ],
+    [
+      "r1:2",
+      "esp32:GPIO16",
+      "red",
+      [
+        "v0.8",
+        "h-40"
+      ]
+    ],
+    [
+      "r2:2",
+      "esp32:GPIO17",
+      "green",
+      [
+        "v0.8",
+        "h-70"
+      ]
+    ],
+    [
+      "r3:2",
+      "esp32:GPIO18",
+      "blue",
+      [
+        "v0.8",
+        "h-100"
+      ]
+    ],
+    [
+      "rgb1:C",
+      "esp32:GND",
+      "black",
+      [
+        "v1.2",
+        "h-120"
+      ]
+    ],
+    [
+      "oled1:VCC",
+      "esp32:3V3",
+      "red",
+      [
+        "v-0.4",
+        "h-20"
+      ]
+    ],
+    [
+      "oled1:GND",
+      "esp32:GND",
+      "black",
+      [
+        "v0.4",
+        "h-20"
+      ]
+    ],
+    [
+      "oled1:SCL",
+      "esp32:GPIO22",
+      "green",
+      [
+        "v0.2",
+        "h-20"
+      ]
+    ],
+    [
+      "oled1:SDA",
+      "esp32:GPIO21",
+      "blue",
+      [
+        "v0.2",
+        "h-20"
+      ]
+    ]
+  ]
+}
